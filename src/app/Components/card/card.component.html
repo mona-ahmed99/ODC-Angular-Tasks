@@ -1,0 +1,16 @@
+<div class="container my-5">
+    <input type="text" class="w-50 form-control m-auto" placeholder="Search....." (keyup)="filter($event)">
+    <div class="row mt-3">
+        <div class="col-md-3 my-2"
+            *ngFor="let post of posts ; let i= index; let odd= odd; let even=even; let first=first">
+            <div class="card" [ngClass]="{'border-danger':odd ,'border-info':even,'alert alert-danger':first}">
+                <div class="card-body">
+                    <h4 class="card-title">{{post.title}}</h4>
+                    <p class="card-text">{{post.body}}</p>
+                    <a class="btn btn-danger" (click)="deleteCard(i)">Delete</a>
+                    <a class="btn btn-info" (click)="updateCard(i)">update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
